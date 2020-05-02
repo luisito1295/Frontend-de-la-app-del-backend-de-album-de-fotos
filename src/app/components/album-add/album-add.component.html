@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+
+<div class="album-box" *ngIf="album" >
+
+  <form #formAlbum="ngForm" (ngSubmit)="onSubmit(formAlbum)">
+
+    <label>Titulo:</label>
+    <p>
+      <input type="text" name="title" #title="ngModel" [(ngModel)]="album.title" required >
+      <span *ngIf="!title.valid && title.touched">
+				El titulo no es válido!!
+			</span>
+    </p>
+
+    <label>Descripcion:</label>
+    <p>
+      <textarea type="text" name="des" #des="ngModel" [(ngModel)]="album.des" required ></textarea>
+      <span *ngIf="!des.valid && des.touched">
+				La descripcion no es válida!!
+			</span>
+    </p>
+    <input type="submit" value="Crear favorito" [disabled]="!formAlbum.form.valid" class="btn btn-success" />
+
+  </form>
+
+</div>
+

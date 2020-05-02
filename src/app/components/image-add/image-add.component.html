@@ -1,0 +1,25 @@
+<h1>{{title}}</h1>
+
+<div class="album-box" *ngIf="image" >
+
+  <form #formImage="ngForm" (ngSubmit)="onSubmit()">
+
+    <label>Titulo:</label>
+    <p>
+      <input type="text" name="title" #title="ngModel" [(ngModel)]="image.title" required >
+      <span *ngIf="!title.valid && title.touched">
+				El titulo no es válido!!
+			</span>
+    </p>
+
+    <div >
+      <label>Sube tu foto:</label><br>
+      <input type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)" />
+
+    </div>
+
+    <input type="submit" value="Añadir imagen" [disabled]="!formImage.form.valid" class="btn btn-success" />
+
+  </form>
+
+</div>

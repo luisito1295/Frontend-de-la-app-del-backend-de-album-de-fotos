@@ -1,0 +1,16 @@
+.btn-atras{
+  margin-top: 15px;
+  text-decoration: none;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: helvetica;
+  font-weight: 300;
+  font-size: 25px;
+  font-style: italic;
+  color: #ff0800;
+  background-color: #ff0606;
+  border-radius: 15px;
+  border: 3px double #ee0101;
+  margin-right: 900px;
+}

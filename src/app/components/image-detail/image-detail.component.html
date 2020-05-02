@@ -1,0 +1,25 @@
+<div class="loading" *ngIf="loading">
+  <img src="../../../assets/img//loader.gif" alt="">
+</div>
+
+<div *ngIf="image" class="image-box">
+  <a [routerLink]="['/album', image.album._id]" class="btn btn-ver"> Volver al album</a>
+  <a [routerLink]="['/editar-imagen', image._id]" class="btn btn-editar">Editar imagen</a>
+  <a  (click)="onDeleteConfirm(image._id)" class="btn btn-eliminar">
+    Eliminar
+  </a>
+  <div class="seguro" *ngIf = "confirmado == image._id">
+    <p>
+      <strong>¿Estas seguro que lo desea borrar el registro?</strong>
+    </p>
+    <a (click) = "borrarAlbum(image._id)" [routerLink]="['/album', image.album._id]" class="btn btn-eliminar">
+      Eliminar
+    </a>
+    <a (click) = "onCancelConfirm(image._id)" class="btn btn-ver">
+      Cancelar
+    </a>
+  </div>
+  <h1>{{image.title}}</h1>
+  <img class="imagen" src="{{apiUrl + image.picture}}">
+</div>
+

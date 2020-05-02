@@ -1,0 +1,32 @@
+<div class="btn-atras">
+  <a [routerLink]="['/']">Atras</a>
+</div>
+
+<div class="album-box" *ngIf="album">
+
+  <div class="data-rest">
+    <h1>Album:{{album.title}}</h1>
+    <p class="descripcion description">{{album.des}}</p>
+
+    <a [routerLink]="['/crear-imagen', album._id]" class="btn btn-default">
+      Añadir fotos
+    </a>
+
+    <div id="gallery-images" *ngIf="images">
+      <ul id="pictures-list">
+        <li *ngFor="let image of images" class="image-item">
+          <div class="picture">
+            <img src="{{apiUrl + image.picture}}" *ngIf="image.picture && image.picture !== 'null'">
+          </div>
+          <div class="title">
+            <a [routerLink]="['/imagen', image._id]">{{image.title}}</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix">
+
+    </div>
+  </div>
+
+</div>
